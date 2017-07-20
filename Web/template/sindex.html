@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>RSearch</title>
+        <style>
+            span{color:blue;}
+            #recid{
+                width:400px;
+                height:30px;
+            }
+            #subid{
+                width:100px;
+                height:38px;
+            }
+            .text_main {font-size:12px}
+            .box{
+
+            margin: auto;
+
+            border:1px #111 solod;
+            display:none;
+            }
+        </style>
+    </head>
+
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <div style="text-align:center;border;">
+            <img src="http://wx4.sinaimg.cn/mw690/e1b491c1ly1fe44ard63mj209602m0sm.jpg" width="280" height="70" title="RSearch">
+            <form method="post" action="">
+            <p>
+			<div id = "hA" class = "box" >
+                <input type="text" name="title" id="recid"  placeholder="在此输入搜索内容"/>
+				<input type="submit" value="  Rsearch!  " id="subid" float="left"/>
+				</div>
+			<div id = "hB" class = "box" style = "display:block">
+			 <input type="text" name="selectt" id="recid"  placeholder="在此输入邮箱查询订阅内容"/>
+			 <input type="submit" value="  Rsearch!  " id="subid" float="left"/>
+			</div>
+				<br/>
+			
+				<label>主题</label>
+				<input type = "radio" name = "selec" onclick = "hidden1(0)" />
+				<label>订阅</label>
+				<input type = "radio" name = "selec" onclick = "hidden1(1)" checked/>
+				<script>
+				function hidden1(n){
+				document.getElementById("hA").style.display = n==0?"block":"none";
+				document.getElementById("hB").style.display = n==1?"block":"none"; 
+             }				
+				</script>
+		
+                <br/>
+           <input type="button" value="点击此处，添加感兴趣的资源订阅！"onclick = "msgbox(1)" />
+                <br/>
+               
+                <div id = "hidden" class = "box">
+                <font color="red">接受订阅，请将rsearchws@outlook.com设为白名单，以防被丢入垃圾邮件错过提醒</font>
+                <br/><br/>
+                <font>请输入感兴趣的关键词</font>
+                <input type="text" name = "keywords" placeholder="越狱重启剧" width="100px" height="30px"/>
+            <br/>
+                <br/>
+                <font>请输入接收提醒的邮箱</font>
+                <input type="text" name = "mail" placeholder="rsearchws@outlook.com" width=100px height=30px />
+                <br/>
+                <br/>
+                <input type="submit" value="确定"/>
+                <input type="button" value="取消" onclick="msgbox(0)"/>
+
+            </div>
+                <script>
+                    function msgbox(n){
+                    document.getElementById("hidden").style.display= n == 0?"none":'block';
+                    }
+                </script>
+            </p>
+            </form>
+        </div>
+
+        <br/><br/><br/>
+        <br/>
+        <p align="center"><font color="#4D4D4D" size=2 >©2017 RSearch for 西电睿思</font></p>
+    </body>
+</html>

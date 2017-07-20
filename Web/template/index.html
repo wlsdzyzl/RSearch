@@ -1,0 +1,138 @@
+$def with(index)
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+				$if index:
+					$:'<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">'
+        <title>RSearch</title>
+        <style>
+            span{color:blue;}
+			$if index:
+				$:'#wocao{width:90%;margin:auto}'
+				$:'.rsearch{width:100%}'
+			$else:
+				$:'#wocao{width:60%;margin:auto}'
+				$:'.rsearch{width:50%}'
+			#recid1{
+width:60%;
+height:2em;
+            }
+
+			  #recid2{
+width:60%;
+height:2em;
+            }
+            #subid{
+                width:30%;
+                height:38px;
+            }
+            .text_main {font-size:12px}
+            .box{
+
+            margin: auto;
+			width:60%;
+            border:1px #111 solod;
+            display:none;
+            }
+        </style>
+    </head>
+<body id="wocao">
+        <br/><br/><br/>
+		$if not index:
+			$:'<br/><br/><br/><br/><br/>'
+							<script>
+                        function loadd(){
+						 document.getElementById("all").style.display = "none";
+						 document.getElementById("loading").style.display = "block";
+					
+                    }
+                </script>
+					<div id = "loading" style ="text-align:center;display:none" >
+    <img src = "http://img.mukewang.com/55ac9c610001438306500324.gif" >
+			
+			</div>
+	 <div id = "all" style = "display:block">
+         <div style="text-align:center">
+            <a href = "http://rs.xidian.edu.cn/portal.php"> <img src="http://wx4.sinaimg.cn/mw690/e1b491c1ly1fe44ard63mj209602m0sm.jpg" class="rsearch"  title="RSearch"></a>
+
+			<form method="post" action="">
+			
+            <p>
+			
+			
+			<div id = "hA"  style = "display:block">
+                <input type="text" name="title" id="recid1"   placeholder="在此输入搜索内容"/>
+				<input type="submit" value="  Rsearch!  " id="subid" float="left" onclick = "loadd()"/>
+				</div>
+			<div id = "hB" style = "display:none">
+			 <input type="text" name="selectt" id="recid2"  placeholder="在此输入邮箱查询订阅内容"/>
+			 <input type="submit" value="  Rsearch!  " id="subid" float="left" onclick = "loadd()"/>
+			</div>
+			
+			
+           
+			
+				<br/>
+				
+				<label>主题</label>
+				<input type = "radio" name = "selec" onclick = "hidden1(0)" checked/>
+				<label>订阅</label>
+				<input type = "radio" name = "selec" onclick = "hidden1(1)"/>
+				<script>
+				function hidden1(n){
+				a = document.getElementById("hA");
+				a.style.display = n==0?"block":"none";
+				c = document.getElementById("recid1");
+				d = document.getElementById("recid2");
+				if (n == 0)
+				{ if(d.value!="") c.value = d.value;
+				d.value="";}
+				else {if(c.value!="") d.value = c.value;
+				c.value="";}
+				b = document.getElementById("hB");
+				b.style.display = n==1?"block":"none";
+         
+             }				
+				</script>
+			
+                <br/>
+				<br/>
+				
+           <input type="button" value="点击此处，添加感兴趣的资源订阅！"onclick = "msgbox(1)" />
+                <br/><br/>
+      
+
+		
+                <div id = "hidden" class = "box">
+                <font color="red">接受订阅，请将rsearchws@outlook.com设为白名单，以防被丢入垃圾邮件错过提醒</font>
+                <br/><br/>
+                <font>请输入感兴趣的关键词</font>
+                <input type="text" name = "keywords" placeholder="越狱重启剧" width="100px" height="30px"/>
+            <br/>
+                <br/>
+                <font>请输入接收提醒的邮箱</font>
+                <input type="text" name = "mail" placeholder="rsearchws@outlook.com" width=100px height=30px />
+                <br/>
+                <br/>
+                <input type="submit" value="确定"/>
+                <input type="button" value="取消" onclick="msgbox(0)"/>
+			
+            </div>
+                <script>
+                    function msgbox(n){
+                    document.getElementById("hidden").style.display= n == 0?"none":'block';
+                    }
+                </script>
+				
+            </p>
+            </form>
+
+                     </div>
+        <br/><br/><br/>
+        <br/>
+		</div>
+
+        <p align="center"><font color="#4D4D4D" size=2 >©2017 RSearch for 西电睿思</font></p>
+    </body>
+</html>

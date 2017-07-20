@@ -1,0 +1,150 @@
+$def with (abc,result,index)
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″ />
+			$if index:
+				$:'<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">'
+
+        <title>$abc RSearch_订阅查询</title>
+        <style>
+            strong{color:red}
+			$if index:
+				$:'#wocao{width:90%;margin:auto}'
+			$else:
+				$:'#wocao{width:70%;}'
+            #recid1{
+                width:60%;
+                height:1.5em;
+            }
+			#recid2{
+                width:60%;
+                height:1.5em;
+            }
+            
+
+			$if not index:
+				$:'.boxx{width:70;height:20%}'
+				$:'#subid{width:10%;height:2em}'
+				$:'.null_er{width:100px;height:120px;}'
+			$else:
+				$:'.boxx{width:100%;height:20%;}'
+				$:'#subid{width:30%;height:2em}'
+			.box{
+
+            margin: auto;
+
+            border:1px #111 solod;
+            display:none;
+            }
+			</style>
+
+    </head>
+    <body id = "wocao">
+								<script>
+                        function loadd(){
+						 document.getElementById("all").style.display = "none";
+						 document.getElementById("loading").style.display = "block";
+					
+                    }
+                </script>
+					<div id = "loading" class = "box" style ="text-align:center" >
+					 <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+   <img src = "http://img.mukewang.com/55ac9c610001438306500324.gif" >
+			
+			</div>
+			<div id = "all" class = "box" style="display:block">
+            <img src="http://wx4.sinaimg.cn/mw690/e1b491c1ly1fe44ard63mj209602m0sm.jpg" width="140" height="35" title="RSearch" style="float:left;">
+
+            <form method="post" action="">
+			<div id = "hA" class = "box" >
+                <input type="text" name="title" id="recid1"  placeholder="在此输入搜索内容"/>
+				<input type="submit" value="  Rsearch!  " id="subid" float="left" onclick = "loadd()"/>
+				</div>
+			<div id = "hB" class = "box" style = "display:block">
+			 <input type="text" name="selectt" id="recid2"  placeholder="$abc"/>
+			 <input type="submit" value="  Rsearch!  " id="subid" float="left" onclick ="loadd()"/>
+			</div>
+
+				<br/>
+				<form>
+
+				<label>主题</label>
+				<input type = "radio" name = "selec" onclick = "hidden1(0)" />
+				<label>订阅</label>
+				<input type = "radio" name = "selec" onclick = "hidden1(1)" checked/>
+				<script>
+				function hidden1(n){
+				document.getElementById("hA").style.display = n==0?"block":"none";
+				document.getElementById("hB").style.display = n==1?"block":"none"; 
+							c = document.getElementById("recid1");
+				d = document.getElementById("recid2");
+				if (n == 0)
+				{ if(d.value!="") c.value = d.value;
+				d.value="";}
+				else {if(c.value!="") d.value = c.value;
+				c.value="";}
+             }				
+				</script>
+				</form>
+            <hr/>
+            <p>
+
+            </p>
+            $for num in range(len(result[0])):
+
+				<font color = 'red'>$:result[0][num][0]</font> 的相关订阅：
+			    <table border="2">
+                <tr>
+
+                    <th>编号</th>
+                    <th>关键词</th>
+
+                </tr>
+              
+                $for i in result[1][num]:			
+                    <tr>
+                        <td>
+                        $:i[0]
+                        </td>
+					    <td>
+					    $:i[1]
+					    </td>
+                    </tr>
+                </table>
+		<br/><br/>
+
+<input type="button" value="点击此处，添加感兴趣的资源订阅！"onclick = "msgbox(1)" />
+<br/>
+<br/><form method="post" action = "">
+                <div id = "hidden" class = "box">
+			
+                <font color="red">接受订阅，请将rsearchws@outlook.com设为白名单，以防被丢入垃圾邮件错过提醒</font>
+                <br/><br/>
+                <font>请输入感兴趣的关键词</font>
+                <input type="text" name = "keywords" placeholder="越狱重启剧" width="100px" height="30px"/>
+            <br/>
+                <br/>
+                <font>请输入接收提醒的邮箱</font>
+                <input type="text" name = "mail" placeholder="rsearchws@outlook.com" width=100px height=30px />
+                <br/>
+                <br/>
+                <input type="submit" value="确定"/>
+                <input type="button" value="取消" onclick="msgbox(0)"/>
+
+            </div>
+                <script>
+                    function msgbox(n){
+                    document.getElementById("hidden").style.display= n == 0?"none":'block';
+                    }
+                </script>
+            </p>
+			</form>
+            </form>
+       
+		</div>
+    <p align="center"><font color="#4D4D4D" size=2 >©2017 RSearch for 西电睿思</font></p>
+    </body>
+
+</html>
